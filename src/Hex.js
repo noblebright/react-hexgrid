@@ -1,10 +1,5 @@
-class Hex {
-  constructor(q, r, s, props = {}) {
-    this.q = q;
-    this.r = r;
-    this.s = s;
-    this.props = props;
-  }
+function Hex (q, r, s, props = {}) {
+  return { q, r, s, props };
 }
 
 export default Hex;

@@ -30,14 +30,17 @@ class HexShape extends React.Component {
     let actions = this.props.actions;
     let styles = this.getStyles(hex);
     let points = this.getPoints(hex);
+    let className = hex.props.className ? 'shape-group ' + hex.props.className : 'shape-group';
+
     return (
-      <g className="shape-group" transform={this.translate()} draggable="true"
-        onMouseEnter={e => actions.onMouseEnter(this.props.hex, e)}
-        onMouseLeave={e => actions.onMouseLeave(this.props.hex, e)}
-        onDragStart={e => actions.onDragStart(this.props.hex, e)}
-        onDragEnd={e => actions.onDragEnd(this.props.hex, e)}
-        onDragOver={e => actions.onDragOver(this.props.hex, e)}
-        onDrop={e => actions.onDrop(this.props.hex, e)}
+      <g className={className} transform={this.translate()} draggable="true"
+        onMouseEnter={e => actions.onMouseEnter && actions.onMouseEnter(this.props.hex, e)}
+        onMouseLeave={e => actions.onMouseLeave && actions.onMouseLeave(this.props.hex, e)}
+        onDragStart={e => actions.onDragStart && actions.onDragStart(this.props.hex, e)}
+        onDragEnd={e => actions.onDragEnd && actions.onDragEnd(this.props.hex, e)}
+        onDragOver={e => actions.onDragOver && actions.onDragOver(this.props.hex, e)}
+        onDrop={e => actions.onDrop && actions.onDrop(this.props.hex, e)}
+        onClick={e => actions.onClick && actions.onClick(this.props.hex, e)}
         >
         <HexPattern hex={hex} />
         <polygon points={points} style={styles} />
