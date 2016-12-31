@@ -21,7 +21,7 @@ class HexShape extends React.Component {
   }
 
   getStyles(hex) {
-    return (!hex.image ? {} : { fill: 'url(#'+ HexUtils.getID(hex) +')' };
+    return !hex.image ? {} : { fill: 'url(#'+ HexUtils.getID(hex) +')' };
   }
 
   render() {
