@@ -6,7 +6,7 @@ class HexPattern extends React.Component {
 
   render() {
     let hex = this.props.hex;
-    if (hex.props == {} || typeof(hex.props.image) === "undefined")
+    if (!hex.image)
       return null;
 
     return (
