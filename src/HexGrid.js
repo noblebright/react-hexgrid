@@ -22,7 +22,7 @@ class HexGrid extends React.Component {
         {
           this.props.hexagons.map((hex, index) => {
             return (
-              <HexShape key={HexUtils.getId(hex)} hex={hex} layout={this.state.layout} actions={this.props.actions} />
+              <HexShape key={HexUtils.getID(hex)} hex={hex} layout={this.state.layout} actions={this.props.actions} />
             );
           })
         }
