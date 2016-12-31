@@ -1,5 +1,5 @@
-function Hex (q, r, s, props = {}) {
-  return { q, r, s, props };
+function Hex (q, r, s) {
+  return { q, r, s };
 }
 
 export default Hex;

@@ -21,16 +21,16 @@ class HexShape extends React.Component {
   }
 
   getStyles(hex) {
-    return (hex.props == {} || typeof(hex.props.image) === "undefined") ? {} : { fill: 'url(#'+ HexUtils.getID(hex) +')' };
+    return (!hex.image ? {} : { fill: 'url(#'+ HexUtils.getID(hex) +')' };
   }
 
   render() {
     let hex = this.props.hex;
-    let text = (hex.props.text) ? hex.props.text : HexUtils.getID(hex);
+    let text = hex.text || HexUtils.getID(hex);
     let actions = this.props.actions;
     let styles = this.getStyles(hex);
     let points = this.getPoints(hex);
-    let className = hex.props.className ? 'shape-group ' + hex.props.className : 'shape-group';
+    let className = hex.className ? 'shape-group ' + hex.className : 'shape-group';
 
     return (
       <g className={className} transform={this.translate()} draggable="true"

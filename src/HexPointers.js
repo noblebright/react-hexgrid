@@ -35,10 +35,10 @@ class HexPointers extends React.Component {
 
   render() {
     let hex = this.props.hex;
-    if (hex.props == {} || typeof(hex.props.arrows) === "undefined")
+    if (!hex || !hex.arrows)
       return null;
 
-    let arrows = hex.props.arrows;
+    let arrows = hex.arrows;
     let points = this.props.points.split(' ');
 
     let polygons = points.map((point, index) => {
